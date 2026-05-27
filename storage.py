@@ -18,6 +18,9 @@ def save_books(books):
 
 def add_book(book):
     books = load_books()
+    for b in books:
+        if b.author == book.author and b.title == book.title:
+            raise ValueError("Книга с таким автором и названием уже существует")
     books.append(book)
     save_books(books)
 
